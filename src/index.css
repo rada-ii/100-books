@@ -96,6 +96,11 @@ input {
   align-items: center;
 }
 
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
 .actions button,
 .list select {
   text-transform: uppercase;
@@ -149,8 +154,12 @@ input[type="checkbox"] {
   padding: 3.2rem 0;
 }
 
-@media (max-width: 77em) {
+@media (max-width: 82em) {
   .add-form {
+    flex-direction: column;
+  }
+
+  .actions {
     flex-direction: column;
   }
 }

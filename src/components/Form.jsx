@@ -1,10 +1,16 @@
-import { useRef, useState } from "react";
+/* eslint-disable react/prop-types */
+import { useRef, useState, useEffect } from "react";
 
-function Form({ setBooks }) {
+function Form({
+  setBooks,
+  books,
+  selectedNumbers,
+  setSelectedNumbers,
+  clearList,
+}) {
   const selRef = useRef();
   const inputRef = useRef();
   const [inputValue, setInputValue] = useState("");
-  const [selectedOptions, setSelectedOptions] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -12,16 +18,6 @@ function Form({ setBooks }) {
     if (!inputValue) return;
 
     const selectedNumber = parseInt(selRef.current.value);
-    const isNumberSelected = selectedOptions.some(
-      (option) => option.id === selectedNumber
-    );
-
-    if (isNumberSelected) {
-      alert(
-        "This number has already been selected. Please choose another number."
-      );
-      return;
-    }
 
     const newBook = {
       id: selectedNumber,
@@ -31,20 +27,19 @@ function Form({ setBooks }) {
     };
 
     setBooks((prev) => [...prev, newBook]);
-    setSelectedOptions((prev) => [...prev, newBook]);
+    setSelectedNumbers((prev) => prev.filter((num) => num !== selectedNumber));
 
     selRef.current.value = "";
     setInputValue("");
   }
 
-  const isListEmpty = selectedOptions.length === 0;
-  const availableOptions = Array.from({ length: 100 }, (_, i) => i + 1)
-    .filter((num) =>
-      isListEmpty
-        ? num > 10
-        : !selectedOptions.some((option) => option.id === num && num <= 10)
-    )
-    .sort((a, b) => a - b);
+  useEffect(() => {
+    setSelectedNumbers(Array.from({ length: 100 }, (_, i) => i + 1));
+  }, [clearList]);
+
+  const availableOptions = selectedNumbers.filter(
+    (num) => !books.map((e) => e.id).includes(num)
+  );
 
   return (
     <>

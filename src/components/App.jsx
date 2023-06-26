@@ -66,12 +66,7 @@ function App() {
 
     if (confirmed) {
       setBooks([]);
-      setSelectedNumbers(
-        Array.from({ length: 100 }, (_, i) => {
-          const number = i + 1;
-          return number <= 10 ? number : initialBooks.length + number;
-        })
-      );
+      setSelectedNumbers(Array.from({ length: 100 }, (_, i) => i + 1));
     }
   }
 
@@ -87,9 +82,11 @@ function App() {
     <div className="app">
       <Logo />
       <Form
+        books={books}
         setBooks={setBooks}
         selectedNumbers={selectedNumbers}
         setSelectedNumbers={setSelectedNumbers}
+        clearList={handleClearList}
       />
       <BookList
         books={books}

@@ -13,7 +13,7 @@ html {
 body {
   font-size: 2.4rem;
   font-family: sans-serif;
-  color: #5a3e2b;
+  color: #d1f4fe;
   font-family: "Laila", sans-serif;
   font-weight: 500;
 }
@@ -24,12 +24,12 @@ body {
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   /* grid-template-rows: 1fr max(0, 3rem) 1fr 1fr; */
-  margin: 1rem auto;
+  margin: auto;
 }
 
 h1 {
   text-align: center;
-  background-color: #26d9f4;
+  background-color: #a4c673;
   font-family: "Kaushan Script", cursive;
   font-size: 4rem;
   text-transform: uppercase;
@@ -40,7 +40,7 @@ h1 {
 }
 
 .add-form {
-  background-color: #9a5846;
+  background-color: #46639a;
 
   padding: 3rem 1rem;
 
@@ -64,7 +64,7 @@ button,
 select,
 input {
   background-color: #ffebb3;
-  color: #5a3e2b;
+  color: #61436e;
   font-family: inherit;
   border: none;
   border-radius: 10rem;
@@ -143,7 +143,7 @@ input[type="checkbox"] {
 }
 
 .stats {
-  background-color: #26d9f4;
+  background-color: #46639a;
   text-align: center;
   font-weight: 700;
   padding: 3.2rem 0;

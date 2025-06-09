@@ -3,8 +3,8 @@
 A simple web application that allows users to add and delete books from their reading list. Clean, minimalist interface focused on the essentials.
 
 ## 🔗 Live Demo
-**Live Demo:** <a href="https://100-books.vercel.app/" target="_blank">Try it Live</a>
 
+<a href="https://100-books.vercel.app/" target="_blank">Live Demo</a>
 
 
 ## ✨ Features
